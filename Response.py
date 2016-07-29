@@ -7,6 +7,9 @@ class Response(object):
 
 	def makeResponse(self, FromUserName, ToUserName, curTime, Content):
 		response = make_response(self.template % (FromUserName, ToUserName, curTime, Content))
+		print '**'
+		print FromUserName
+		print Content
 		response.content_type = 'application/xml'
 		return response
 
