@@ -9,6 +9,7 @@ def singleton(cls):
 @singleton
 class DataBase:
 	def __init__(self):
+		return
 
 	def init(self):
 		conn = sqlite3.connect('wx.db')
