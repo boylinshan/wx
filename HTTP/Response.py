@@ -13,7 +13,7 @@ class Response(object):
 		response.content_type = 'application/xml'
 		return response
 
-	def test(self, Content, UserName):
+	def test(self, UserName, Content):
 		print UserName
 		result = self.db.execute('select money from costs where uid = "%s"' % UserName)
 		if not result:
