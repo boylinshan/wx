@@ -14,6 +14,7 @@ class Response(object):
 		return response
 
 	def test(self, Content, UserName):
+		print UserName
 		result = self.db.execute('select money from costs where uid = "%s"' % UserName)
 		if not result:
 			self.db.execute('insert into costs values("%s", 300)' % UserName)
