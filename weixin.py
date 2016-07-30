@@ -37,7 +37,7 @@ def weixin_handler():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=int('80'))
-    db = Database()
+    db = DataBase()
     db.init()
 
 

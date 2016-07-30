@@ -1,8 +1,13 @@
 import sqlite3
-from utils.tools import singleton
+#from utils.tools import singleton
+
+def singleton(cls):
+	singleton = cls()
+	singleton.__call__ = lambda : singleton
+	return singleton
 
 @singleton
-class DataBase(object):
+class DataBase:
 	def __init__(self):
 		self._conn = sqlite3.connect('wx.db')
 
