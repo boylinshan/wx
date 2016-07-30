@@ -22,7 +22,8 @@ class DataBase:
 		conn = sqlite3.connect('wx.db')
 		cursor = conn.cursor()
 		cursor.execute(sql)
+		result = cursor.fetchone()
 		conn.close()
 
-		return cursor.fetchone()
+		return result
 
