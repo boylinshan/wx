@@ -23,7 +23,6 @@ class DataBase:
 		cursor = conn.cursor()
 		cursor.execute(sql)
 		result = cursor.fetchone()
-		conn.close()
 
 		return result
 
