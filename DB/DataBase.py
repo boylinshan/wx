@@ -9,16 +9,19 @@ def singleton(cls):
 @singleton
 class DataBase:
 	def __init__(self):
-		self._conn = sqlite3.connect('wx.db')
 
 	def init(self):
-		cursor = self._conn.cursor()
+		conn = sqlite3.connect('wx.db')
+		cursor = conn.cursor()
 		cursor.execute('create table if not exists costs(uid text, money real)')
-		self._conn.commit()
+		conn.commit()
+		conn.close()
 
 	def execute(self, sql):
-		cursor = self._conn.cursor()
+		conn = sqlite3.connect('wx.db')
+		cursor = conn.cursor()
 		cursor.execute(sql)
+		conn.close(0)
 
 		return cursor.fetchone()
 
