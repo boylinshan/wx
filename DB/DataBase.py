@@ -18,11 +18,19 @@ class DataBase:
 		conn.commit()
 		conn.close()
 
-	def execute(self, sql):
+	def query(self, sql):
 		conn = sqlite3.connect('wx.db')
 		cursor = conn.cursor()
 		cursor.execute(sql)
 		result = cursor.fetchone()
 
 		return result
+
+	def insert(self, sql):
+		conn = sqlite3.connect('wx.db')
+		cursor = conn.cursor()
+		cursor.execute(sql)
+		conn.commit()
+		conn.close()
+
 
