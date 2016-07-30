@@ -7,8 +7,9 @@ def singleton(cls):
 	return singleton
 
 @singleton
-class DataBase:
+class DataBase(object):
 	def __init__(self):
+		super(DataBase, self).__init__()
 		return
 
 	def init(self):
@@ -32,5 +33,4 @@ class DataBase:
 		cursor.execute(sql)
 		conn.commit()
 		conn.close()
-
 
