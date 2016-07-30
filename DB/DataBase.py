@@ -6,7 +6,7 @@ def singleton(cls):
 	singleton.__call__ = lambda : singleton
 	return singleton
 
-@singleton
+#@singleton
 class DataBase(object):
 	def __init__(self):
 		super(DataBase, self).__init__()
