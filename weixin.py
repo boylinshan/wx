@@ -5,7 +5,7 @@ import sqlite3
 from flask import Flask, request, make_response
 from HTTP.Request import Request
 from HTTP.Response import Response
-from DB.Database import Database
+from DB.DataBase import DataBase
 
 app = Flask(__name__)
 app.debug = True
