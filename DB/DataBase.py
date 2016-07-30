@@ -3,8 +3,8 @@ from utils.tools import singleton
 
 @singleton
 class DataBase(object):
-	def __init__(self, db):
-		self._conn = sqlite3.connect('db')
+	def __init__(self):
+		self._conn = sqlite3.connect('wx.db')
 
 	def init(self):
 		cursor = self._conn.cursor()

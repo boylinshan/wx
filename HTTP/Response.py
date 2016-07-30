@@ -5,7 +5,7 @@ class Response(object):
 	def __init__(self):
 		super(Response, self).__init__()
 		self.template = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
-		self.db = DataBase('wx.db')
+		self.db = DataBase()
 
 	def makeResponse(self, FromUserName, ToUserName, curTime, Content):
 		Content = self.test(FromUserName, Content)	
