@@ -1,5 +1,5 @@
 import sqlite3
-import utils.tools
+from utils.tools import singleton
 
 @singleton
 class DataBase(object):
