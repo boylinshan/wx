@@ -1,9 +1,11 @@
 import os
 import hashlib
+import sqlite3
 
 from flask import Flask, request, make_response
-from Request import Request
-from Response import Response
+from HTTP.Request import Request
+from HTTP.Response import Response
+from DB.Database import Database
 
 app = Flask(__name__)
 app.debug = True
@@ -35,5 +37,8 @@ def weixin_handler():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=int('80'))
+    db = Database('wx.db')
+    db.init()
+
 
     
