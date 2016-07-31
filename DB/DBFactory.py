@@ -25,4 +25,4 @@ class DBFactory(object):
 		if not member:
 			raise StandardError("can't find %s" % name)
 
-		return member
+		return member()
