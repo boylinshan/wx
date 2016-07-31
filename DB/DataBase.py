@@ -23,7 +23,7 @@ class DataBase(object):
 		cursor.execute('create table if not exists costs(uid text, money real)')
 
 	@OperateWrap
-	def query(self):
+	def query(self, sql):
 		cursor = self.conn.cursor()
 		cursor.execute('aa')
 		result = cursor.fetchone()

@@ -6,7 +6,7 @@ class ServiceCosts(Service):
 
 	def parse(self, uid, content):
 		print self.database
-		result = self.database.query('select money from costs where uid = "%s"' % uid)
+		result = self.database.query()
 		if not result:
 			self.database.insert('insert into costs values("%s", 300)' % uid)
 			return 300
