@@ -17,6 +17,8 @@ class DataBase(object):
 		self.database = self.__class__.__name__[7:] + '.db'
 		self.conn = None
 		self.init()
+		print '**'
+		print self
 
 	@OperateWrap
 	def init(self, sql=None):
