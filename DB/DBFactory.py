@@ -20,7 +20,7 @@ class DBFactory(object):
 				raise StandardError("can't find %s" % name)
 
 	def getDataBase(self, name):
-		name += 'DataBase'
+		name = 'DataBase' + name
 		member = self.db_dict.get(name, None)
 		if not member:
 			raise StandardError("can't find %s" % name)
