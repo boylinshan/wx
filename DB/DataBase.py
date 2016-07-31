@@ -4,7 +4,10 @@ from utils.tools import Singleton
 def OperateWrap(operate):
 	def operateWrap(self, param=None):
 		self.conn = sqlite3.connect(self.database)
-		operate(self, param)
+		if param:
+			operate(self, param)
+		else:
+			operate(self)
 		self.conn.commit()
 		self.conn.close()
 
