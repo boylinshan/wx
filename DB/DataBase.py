@@ -2,9 +2,10 @@ import sqlite3
 from utils.tools import Singleton
 
 def OperateWrap(operate):
-	def operateWrap(cls, ss):
+	def operateWrap(cls):
+		print cls
 		cls.conn = sqlite3.connect(cls.database)
-		operate(cls, ss)
+		operate(cls)
 		cls.conn.commit()
 		cls.conn.close()
 
