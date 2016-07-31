@@ -2,6 +2,7 @@ import sqlite3
 from utils.tools import Singleton
 
 def OperateWrap(operate):
+	print '**'
 	def operateWrap(self, param):
 		self.conn = sqlite3.connect(self.database)
 		return operate(self, param)
