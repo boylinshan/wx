@@ -24,7 +24,7 @@ class DataBase(object):
 
 	@OperateWrap
 	def query(self):
-		cursor = conn.cursor()
+		cursor = self.conn.cursor()
 		cursor.execute('aa')
 		result = cursor.fetchone()
 
