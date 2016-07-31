@@ -5,7 +5,7 @@ import sqlite3
 from flask import Flask, request, make_response
 from HTTP.Request import Request
 from HTTP.Response import Response
-from DB.DataBase import DataBase
+from DB.DBFactory import DBFactory
 
 app = Flask(__name__)
 app.debug = True
@@ -37,8 +37,7 @@ def weixin_handler():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=int('80'))
-    db = DataBase()
-    db.init()
+    DBFactory()
 
 
     
