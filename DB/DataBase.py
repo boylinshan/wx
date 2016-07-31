@@ -2,9 +2,9 @@ import sqlite3
 from utils.tools import Singleton
 
 def OperateWrap(operate):
-	def operateWrap(self, param):
+	def operateWrap(self):
 		self.conn = sqlite3.connect(self.database)
-		operate(self, param)
+		operate(self)
 		self.conn.commit()
 		self.conn.close()
 
@@ -18,14 +18,14 @@ class DataBase(object):
 		self.init()
 
 	@OperateWrap
-	def init(self, sql=None):
+	def init(self):
 		cursor = self.conn.cursor()
 		cursor.execute('create table if not exists costs(uid text, money real)')
 
 	@OperateWrap
-	def query(self, sql):
+	def query(self):
 		cursor = conn.cursor()
-		cursor.execute(sql)
+		cursor.execute('aa')
 		result = cursor.fetchone()
 
 		return result
