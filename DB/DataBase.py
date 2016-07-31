@@ -4,9 +4,9 @@ from utils.tools import Singleton
 def OperateWrap(operate):
 	def operateWrap(self, param):
 		self.conn = sqlite3.connect(self.database)
-		operate(cls, param)
-		self.conn.commit()
-		self.conn.close()
+		return operate(self, param)
+		#self.conn.commit()
+		#self.conn.close()
 
 	return operateWrap
 
