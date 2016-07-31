@@ -35,6 +35,6 @@ class DataBase(object):
 
 	@OperateWrap
 	def insert(self, sql):
-		cursor = conn.cursor()
+		cursor = self.conn.cursor()
 		cursor.execute(sql)
 
