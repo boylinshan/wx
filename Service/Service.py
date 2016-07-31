@@ -1,7 +1,7 @@
 from DB.DBFactory import DBFactory
 
 class Service(object):
-	def __init__(self, db):
+	def __init__(self):
 		super(Service, self).__init__()
 		self.database = DBFactory.getDataBase(self.__class__.__name__[6:])
 

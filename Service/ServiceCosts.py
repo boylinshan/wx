@@ -1,4 +1,4 @@
-from Service.Service import Service
+from Service import Service
 
 class ServiceCosts(Service):
 	def __init__(self):
