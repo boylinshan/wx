@@ -1,7 +1,7 @@
 import sqlite3
 
 conn = sqlite3.connect('Costs.db')
-cursur = conn.cursur()
+cursor = conn.cursor()
 
-for item in cursur.execute('select * from costs'):
+for item in cursor.execute('select * from costs'):
 	print item
