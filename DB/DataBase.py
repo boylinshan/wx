@@ -16,7 +16,7 @@ def OperateWrap(operate):
 class DataBase(object):
 	def __init__(self):
 		super(DataBase, self).__init__()
-		self.database = self.__class__.__name__[7:] + '.db'
+		self.database = self.__class__.__name__[8:] + '.db'
 		self.conn = None
 		self.init()
 
