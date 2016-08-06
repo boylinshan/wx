@@ -16,7 +16,7 @@ def OperateWrap(operate):
 	return operateWrap
 
 class DataBase(object):
-	__metaclass__ == Singleton
+	__metaclass__ = Singleton
 	def __init__(self):
 		super(DataBase, self).__init__()
 		self.database = self.__class__.__name__[8:] + '.db'
