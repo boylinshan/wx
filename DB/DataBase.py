@@ -21,6 +21,7 @@ class DataBase(object):
 		self.database = self.__class__.__name__[8:] + '.db'
 		self.conn = None
 		self.init()
+		print 'init-----'
 
 	@OperateWrap
 	def init(self):
