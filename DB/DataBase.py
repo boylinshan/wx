@@ -42,3 +42,7 @@ class DataBase(object):
 		cursor = self.conn.cursor()
 		cursor.execute(sql)
 
+	@OperateWrap
+	def update(self, sql):
+		cursor = self.conn.cursor()
+		cursor.execute(sql)

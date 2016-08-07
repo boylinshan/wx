@@ -17,5 +17,6 @@ class ServiceCosts(Service):
 				cost = 0
 
 			result = result[0] - cost
+			self.database.update('update costs set money = %s where uid = "%s"' % (result, uid))
 
 			return result 
