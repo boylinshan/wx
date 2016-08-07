@@ -4,7 +4,7 @@ class ServiceCosts(Service):
 	def __init__(self):
 		super(ServiceCosts, self).__init__()
 		self.money = 0
-		self.uid = uid
+		self.uid = None
 		self.init()
 		self.addObserver(self.database, 'money')
 
