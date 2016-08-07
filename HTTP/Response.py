@@ -9,7 +9,7 @@ class Response(object):
 		self.format = re.compile('^\d+\s+\w+\s*$')
 
 	def makeResponse(self, FromUserName, ToUserName, curTime, Content):
-		info = self_.confirm(Content):
+		info = self_.confirm(Content)
 		if info:
 			service = ServiceFactory().getService(info[0])
 			Content = service.parse(info[1])
