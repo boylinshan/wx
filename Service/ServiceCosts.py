@@ -24,6 +24,6 @@ class ServiceCosts(Service):
 			print e
 			cost = 0
 
-		self.money = result[0] - cost
+		self.money = self.money - cost
 
 		return self.money 
