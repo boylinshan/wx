@@ -23,9 +23,9 @@ class Observable(object):
 	def __setattr__(self, name, new_value):
 		observers = self._observes_dict.get(name, None)
 		old_value = self.__dict__.get(name, None)
-		super(Observable, self).__setattr__(name, value)
+		super(Observable, self).__setattr__(name, new_value)
 
-		if not observes or old_value == value:
+		if not observes or old_value == new_value:
 			return
 
 		for observer in observers:
