@@ -1,7 +1,6 @@
-import sqlite3
+import re
 
-conn = sqlite3.connect('Costs.db')
-cursor = conn.cursor()
+format = re.compile('^\d+\s+\w+\s*$')
 
-for item in cursor.execute('select * from costs'):
-	print item
+print format.match('13 a qwe')
+

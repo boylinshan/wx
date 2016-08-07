@@ -7,6 +7,7 @@ class ServiceFactory(object):
 	def __init__(self):
 		self.services = {'ServiceCosts'}
 		self.service_dict= {}
+		self.id2name = {'1': 'Costs'}
 		self.init()
 
 	def init(self):
@@ -19,8 +20,8 @@ class ServiceFactory(object):
 			else:
 				raise StandardError("can't find %s" % name)
 
-	def __call__(self, name):
-		name = 'Service' + name
+	def getService(self, id):
+		name = 'Service' + self.id2name(id)
 		member = self.service_dict.get(name, None)
 		if not member:
 			raise StandardError("can't find %s" % name)
