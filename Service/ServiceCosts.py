@@ -4,20 +4,20 @@ class ServiceCosts(Service):
 	def __init__(self):
 		super(ServiceCosts, self).__init__()
 		self.money = 0
-		self.uid = None
-		self.init()
-		self.addObserver(self.database, 'money')
+		self.uid = 0
 
-	def init(self):
+	def init(self, uid):
+		self.uid = uid
 		result = self.database.query('select money from costs where uid = "%s"' % self.uid)
 		if not result:
 			self.money = 300
-			self.database.insert('insert into costs values("%s", %s)' % (uid, self.money))
+			self.database.insert('insert into costs values("%s", %s)' % (self.uid, self.money))
 		else:
 			self.money = result[0]
 
-	def parse(self, uid, cost):
-		self.uid = uid
+		self.addObserver(self.database, 'money')
+
+	def parse(self, cost):
 		try:
 			cost = eval(cost)
 		except Exception as e:

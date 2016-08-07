@@ -13,7 +13,8 @@ class Response(object):
 		info = self._confirm(Content)
 		if info:
 			service = ServiceFactory().getService(info[0])
-			Content = service.parse(FromUserName, info[1])
+			service.init(FromUserName)
+			Content = service.parse(info[1])
 		else:
 			Content = self.defaultResponse 
 
@@ -22,10 +23,8 @@ class Response(object):
 		return response
 
 	def _confirm(self, content):
-		print content
 		if self.format.match(content):
 			index = content.find('.')
-			print index
 			return [content[:index].strip(), content[index+1:].strip()]
 		else:
 			return None
