@@ -13,7 +13,7 @@ class Response(object):
 		info = self._confirm(Content)
 		if info:
 			service = ServiceFactory().getService(info[0])
-			Content = service.parse(info[1])
+			Content = service.parse(FromUserName, info[1])
 		else:
 			Content = self.defaultResponse 
 
