@@ -21,7 +21,7 @@ class ServiceFactory(object):
 				raise StandardError("can't find %s" % name)
 
 	def getService(self, id):
-		name = 'Service' + self.id2name(id)
+		name = 'Service' + self.id2name[id]
 		member = self.service_dict.get(name, None)
 		if not member:
 			raise StandardError("can't find %s" % name)
