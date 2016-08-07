@@ -1,5 +1,5 @@
 from flask import make_response
-from Service.ServiceCosts import ServiceCosts
+from Service.ServiceFactory import ServiceFactory
 
 class Response(object):
 	def __init__(self):
