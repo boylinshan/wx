@@ -1,6 +1,6 @@
 class Observer(object):
 	def __init__(self):
-		super(Observe, self).__init__()
+		super(Observer, self).__init__()
 
 	def on_value_changed(self):
 		raise NotImplementedError
