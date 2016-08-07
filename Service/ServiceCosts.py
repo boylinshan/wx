@@ -3,12 +3,16 @@ from Service import Service
 class ServiceCosts(Service):
 	def __init__(self):
 		super(ServiceCosts, self).__init__()
+		self.money = 300
+		self.uid = uid
+		self.addObserver(self.database, 'money')
 
 	def parse(self, uid, cost):
-		result = self.database.query('select money from costs where uid = "%s"' % uid)
+		self.uid = uid
+		result = self.database.query('select money from costs where uid = "%s"' % self.uid)
 		if not result:
-			self.database.insert('insert into costs values("%s", 300)' % uid)
-			return 300
+			self.database.insert('insert into costs values("%s", %s)' % (uid, self.money))
+			return self.money
 		else:
 			try:
 				cost = eval(cost)
@@ -16,7 +20,6 @@ class ServiceCosts(Service):
 				print e
 				cost = 0
 
-			result = result[0] - cost
-			self.database.update('update costs set money = %s where uid = "%s"' % (result, uid))
+			self.money = result[0] - cost
 
-			return result 
+			return self.money 

@@ -1,5 +1,6 @@
 import sqlite3
 from utils.tools import Singleton
+from utils.Observer import Observer
 
 def OperateWrap(operate):
 	def operateWrap(self, param=None):
@@ -15,7 +16,7 @@ def OperateWrap(operate):
 
 	return operateWrap
 
-class DataBase(object):
+class DataBase(Observer):
 	__metaclass__ = Singleton
 	def __init__(self):
 		super(DataBase, self).__init__()
