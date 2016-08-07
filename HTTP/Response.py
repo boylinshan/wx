@@ -7,8 +7,7 @@ class Response(object):
 		super(Response, self).__init__()
 		self.template = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
 		self.format = re.compile('^\d+\s+\w+\s*$')
-		self.defaultResponse = '0. Help\
-								1. Costs Service'
+		self.defaultResponse = '0. Help\n1. Costs Service'
 
 	def makeResponse(self, FromUserName, ToUserName, curTime, Content):
 		info = self._confirm(Content)
