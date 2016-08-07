@@ -2,19 +2,19 @@ import sqlite3
 from utils.tools import Singleton
 from utils.Observer import Observer
 
-def OperateWrap(operate):
-	def operateWrap(self, param=None):
+def Session(func):
+	def wrap_func(self, param=None):
 		self.conn = sqlite3.connect(self.database)
 		if param:
-			result = operate(self, param)
+			result = func(self, param)
 		else:
-			result = operate(self)
+			result = func(self)
 		self.conn.commit()
 		self.conn.close()
 
 		return result
 
-	return operateWrap
+	return wrap_func
 
 class DataBase(Observer):
 	__metaclass__ = Singleton
@@ -25,12 +25,12 @@ class DataBase(Observer):
 		self.init()
 		print 'init-----'
 
-	@OperateWrap
+	@Session
 	def init(self):
 		cursor = self.conn.cursor()
 		cursor.execute('create table if not exists costs(uid text, money real)')
 
-	@OperateWrap
+	@Session
 	def query(self, sql):
 		cursor = self.conn.cursor()
 		cursor.execute(sql)
@@ -38,12 +38,12 @@ class DataBase(Observer):
 
 		return result
 
-	@OperateWrap
+	@Session
 	def insert(self, sql):
 		cursor = self.conn.cursor()
 		cursor.execute(sql)
 
-	@OperateWrap
+	@Session
 	def update(self, sql):
 		cursor = self.conn.cursor()
 		cursor.execute(sql)
