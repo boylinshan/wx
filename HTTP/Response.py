@@ -22,8 +22,10 @@ class Response(object):
 		return response
 
 	def _confirm(self, content):
+		print content
 		if self.format.match(content):
 			index = content.find(' ')
+			print index
 			return [content[:index].strip(), content[index:].strip()]
 		else:
 			return None
