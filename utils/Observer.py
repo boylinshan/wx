@@ -25,7 +25,7 @@ class Observable(object):
 		old_value = self.__dict__.get(name, None)
 		super(Observable, self).__setattr__(name, new_value)
 
-		if not observes or old_value == new_value:
+		if not observers or old_value == new_value:
 			return
 
 		for observer in observers:
